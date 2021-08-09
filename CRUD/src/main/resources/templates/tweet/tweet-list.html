@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Tweets</title>
+</head>
+<body>
+<div th:switch="${tweets}">
+    <h2 th:case="null">No tweet found!</h2>
+    <div th:case="*">
+        <h2>Tweets</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>TweetText</th>
+                <th>Nickname</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="tweet : ${tweets}">
+                <td th:text="${tweet.id}"></td>
+                <td th:text="${tweet.tweetText}"></td>
+                <td th:text="${tweet.person.nickname}"></td>
+                <td><a th:href="@{tweet-update/{id}(id=${tweet.id})}">Edit</a></td>
+                <td><a th:href="@{tweet-delete/{id}(id=${tweet.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/tweet-create">Create tweet</a></p>
+    <p><a href="/persons">All Users</a></p>
+</div>
+</body>
+</html>

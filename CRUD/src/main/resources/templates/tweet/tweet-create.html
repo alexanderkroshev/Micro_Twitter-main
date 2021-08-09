@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create tweet</title>
+</head>
+<body>
+<form action="#" th:action="@{/tweet-create}" th:object="${createTweetRequest}" method="post">
+    <label for="tweetText">Tweet Text</label>
+    <input type="text" th:field="*{tweetText}" id="tweetText" placeholder="Tweet Text">
+    <label for="nickname">Nickname</label>
+    <input type="text" th:field="*{nickname}" id="nickname" placeholder="personNickname">
+    <input type="submit" value="Create tweet">
+
+</form>
+</body>
+</html>

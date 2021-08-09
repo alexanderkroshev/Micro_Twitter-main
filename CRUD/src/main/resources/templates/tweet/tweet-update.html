@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta charset="UTF-8">
+<title>Create user</title>
+</head>
+<body>
+<form action="#" th:action="@{/tweet-update}" th:object="${tweet}" method="post">
+    <label for="id">ID</label>
+    <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
+    <br/>
+    <label for="tweetText">tweetText</label>
+    <input type="text" th:field="*{tweetText}" id="tweetText" placeholder="tweetText">
+    <br/>
+    <label for="personId">Person ID</label>
+    <input readonly type="number" th:field="*{person.id}" id="personId" placeholder="Person ID">
+    <br/>
+    <input type="submit" value="Update tweet">
+</form>
+</body>
+</html>
+
